@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>60 Days From Now</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #currentDate, #futureDate {
+      font-weight: bold;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Today's Date: <span id="currentDate"></span></h1>
+  <h1>Date 60 Days From Now: <span id="futureDate"></span></h1>
+
+  <script>
+    var currentDateElement = document.getElementById('currentDate');
+    var futureDateElement = document.getElementById('futureDate');
+
+    var currentDate = new Date();
+    currentDateElement.innerText = formatDate(currentDate);
+
+    var futureDate = new Date();
+    futureDate.setDate(currentDate.getDate() + 60);
+    futureDateElement.innerText = formatDate(futureDate);
+
+    function formatDate(date) {
+      var year = date.getFullYear();
+      var month = padZero(date.getMonth() + 1);
+      var day = padZero(date.getDate());
+
+      return month + '/' + day + '/' + year;
+    }
+
+    function padZero(number) {
+      if (number < 10) {
+        return '0' + number;
+      }
+      return number;
+    }
+  </script>
+</body>
+</html>
